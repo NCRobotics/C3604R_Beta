@@ -47,12 +47,8 @@ class ROBOT
 
     //USB Items
     USB Usb;
-    
     XBOXRECV Xbox;
     
-    
-   
-
     //PIN Declarations
     static const int _DriveLeftPWM1 = 2;
     static const int _DriveLeftPWM2 = 3;
@@ -69,10 +65,7 @@ class ROBOT
     static const int _ClawMotorPWM1 = 6;
     static const int _ClawMotorPWM2 = 7;
     static const bool _ClawMotorReversed = false;
-        
-
-    
-
+      
     static const uint8_t _Button0 = 0;
     static const uint8_t _LEDBuiltIn = 25;
     static const uint8_t _AutonLightSensor = 0;

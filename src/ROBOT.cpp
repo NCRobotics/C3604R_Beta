@@ -5,12 +5,11 @@ ROBOT::ROBOT(YETI_YUKON &rYukon) : Yukon(rYukon),
      DriveRight(_DriveRightPWM1, _DriveRightPWM2, &Yukon.PWM, _DriveRightReversed), 
      LiftMotor(_LiftMotorPWM1, _LiftMotorPWM2, &Yukon.PWM, _LiftMotorReversed), 
      ClawMotor(_ClawMotorPWM1, _ClawMotorPWM2, &Yukon.PWM, _ClawMotorReversed), 
-    Drive(*this),
-    Lift(*this),
-    Claw(*this),
-                                   Auton(*this),
-    
-        Xbox(&Usb)
+     Drive(*this),
+     Lift(*this),
+     Claw(*this),
+     Auton(*this),
+     Xbox(&Usb)
     
 
 {
