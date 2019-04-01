@@ -20,6 +20,9 @@ void AutonTask(void *pvParameters);
 void DriveTask(void *pvParameters);
 void LiftTask(void *pvParameters);
 void ClawTask(void *pvParameters);
+void BuddyBotTask(void *pvParameters);
+void BallThrowerTask(void *pvParameters);
+void BallIntakeTask(void *pvParameters);
 void WatchdogTask(void *pvParameters);
 
 void setup()
@@ -60,6 +63,12 @@ void setup()
     xTaskCreatePinnedToCore(DriveTask, "DriveTask", 10000, NULL, 2, NULL, 0);
     xTaskCreatePinnedToCore(LiftTask, "LiftTask", 10000, NULL, 2, NULL, 0);
     xTaskCreatePinnedToCore(ClawTask, "ClawTask", 10000, NULL, 2, NULL, 0);
+    xTaskCreatePinnedToCore(BuddyBotTask, "BuddyBotTask", 10000, NULL, 2, NULL, 0);
+    xTaskCreatePinnedToCore(BallThrowerTask, "BallThrowerTask", 10000, NULL, 2, NULL, 0);
+    xTaskCreatePinnedToCore(BallIntakeTask, "BallIntakeTask", 10000, NULL, 2, NULL, 0);
+
+
+
     
 }
 
@@ -196,6 +205,39 @@ void ClawTask(void *pvParameters)
         while (true)
         {
             Robot.Claw.Loop();
+        }
+    }
+
+void BuddyBotTask(void *pvParameters)
+{
+    Serial.print("BuddyBotTask: Executing on core ");
+    Serial.println(xPortGetCoreID());
+
+        while (true)
+        {
+            Robot.BuddyBot.Loop();
+        }
+    }
+
+void BallThrowerTask(void *pvParameters)
+{
+    Serial.print("BallThrowerTask: Executing on core ");
+    Serial.println(xPortGetCoreID());
+
+        while (true)
+        {
+            Robot.BallThrower.Loop();
+        }
+    }
+
+void BallIntakeTask(void *pvParameters)
+{
+    Serial.print("BallIntakeTask: Executing on core ");
+    Serial.println(xPortGetCoreID());
+
+        while (true)
+        {
+            Robot.BallIntake.Loop();
         }
     }
     
